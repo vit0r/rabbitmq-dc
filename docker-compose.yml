@@ -15,6 +15,14 @@ services:
      - "15672:15672"
    volumes:
      - 'rabbitmq_data:/data'
+   networks: 
+     rabbitmq01_net:
+       aliases: 
+         - rabbitmq01_net
 
 volumes:
   rabbitmq_data:
+
+networks:
+  rabbitmq01_net:
+    driver: bridge
