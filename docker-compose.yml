@@ -1,0 +1,20 @@
+---
+# compose 3.7 / docker version needed -> 18.06.0+
+
+version: '3.7'
+
+services:
+ rabbitmq01:
+   hostname: rabbitmq01
+   container_name: rabbitmq01
+   image: "rabbitmq:3-management"
+   env_file:
+    - rabbitmq01-variables.env
+   ports:
+     - "5672:5672"
+     - "15672:15672"
+   volumes:
+     - 'rabbitmq_data:/data'
+
+volumes:
+  rabbitmq_data:
